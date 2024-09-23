@@ -2,6 +2,20 @@
 <html>
 <head>
     <script src='https://cdn.paritydeals.com/banner.js'></script>
+    <script>
+ (function(w,d,s,o,f,js,fjs){
+   w[o]=w[o]function(){(w[o].q=w[o].q[]).push(Array.prototype.slice.call(arguments))};
+   js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
+   js.id='parity-deals-sdk';js.async=1;js.src=f;
+   fjs.parentNode.insertBefore(js,fjs);
+ }(window,document,'script','ParityDeals'
+ ,'https://cdn.paritydeals.com/paritydeals-sdk/0.0.3/paritydeals-sdk.min.js'));
+  
+// Initialize ParityDeals
+ ParityDeals('init', {
+   convertToLocal: true
+ });
+</script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
 </head>
 <body style="height: 1000px;">
@@ -32,19 +46,6 @@
     })
   </script>
     <script id="__webwhizSdk__" src="https://widget.webwhiz.ai/webwhiz-sdk.js" data-chatbot-id="65be0e67215790325626872d"></script>
-    <script>
- (function(w,d,s,o,f,js,fjs){
-   w[o]=w[o]function(){(w[o].q=w[o].q[]).push(Array.prototype.slice.call(arguments))};
-   js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
-   js.id='parity-deals-sdk';js.async=1;js.src=f;
-   fjs.parentNode.insertBefore(js,fjs);
- }(window,document,'script','ParityDeals'
- ,'https://cdn.paritydeals.com/paritydeals-sdk/0.0.3/paritydeals-sdk.min.js'));
-  
-// Initialize ParityDeals
- ParityDeals('init', {
-   convertToLocal: true
- });
-</script>
+    
 
 </html>
