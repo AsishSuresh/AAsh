@@ -32,7 +32,7 @@
     })
   </script>
     <script id="__webwhizSdk__" src="https://widget.webwhiz.ai/webwhiz-sdk.js" data-chatbot-id="65be0e67215790325626872d"></script>
-    <script>
+<!--     <script>
  (function(w,d,s,o,f,js,fjs){
    w[o]=w[o]function(){(w[o].q=w[o].q[]).push(Array.prototype.slice.call(arguments))};
    js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
@@ -45,5 +45,20 @@
  ParityDeals('init', {
    convertToLocal: true
  });
+</script> -->
+    <script>
+ (function(w,d,s,o,f,js,fjs){
+   w[o] = w[o] || function(){(w[o].q = w[o].q || []).push(Array.prototype.slice.call(arguments))};
+   js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+   js.id = 'parity-deals-sdk'; js.async = 1; js.src = f;
+   fjs.parentNode.insertBefore(js, fjs);
+ }(window, document, 'script', 'ParityDeals',
+   'https://cdn.paritydeals.com/paritydeals-sdk/0.0.3/paritydeals-sdk.min.js'));
+
+ // Initialize ParityDeals
+ ParityDeals('init', {
+   convertToLocal: true
+ });
 </script>
+
 </html>
