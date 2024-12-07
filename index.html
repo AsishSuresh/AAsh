@@ -45,7 +45,7 @@ ParityDeals.init({
   <script>
 const fetchCheckoutUrl = async () => {
   const data = {
-    pd_identifier: '',  // Replace with actual pd identifier
+    pd_identifier: '9b9895a6-65cd-4437-97a3-133efbd2b675',  // Replace with actual pd identifier
     ip_address: '192.168.1.37',     // Replace with actual ip_address
     apply_coupons: true, // Set it to false if you don't want automatically apply the coupons
     payment_id: 'plink_1Q0PqeLN3QPLtCqepupekhAP',
@@ -54,7 +54,7 @@ const fetchCheckoutUrl = async () => {
   };
 
   try {
-    const response = await fetch('https://api.paritydeals.com/api/v1/stripe-checkout/', {
+    const response = await fetch('https://stagingapi.paritydeals.com/api/v1/stripe-checkout/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
