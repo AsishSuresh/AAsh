@@ -45,12 +45,35 @@ ParityDeals.init({
     <script id="__webwhizSdk__" src="https://widget.webwhiz.ai/webwhiz-sdk.js" data-chatbot-id="65be0e67215790325626872d"></script>
   <script>
 
-    import stripe
-stripe.api_key = "sk_test_51Os6YbLN3QPLtCqehqkCCXX5pCHTnYjk0GUY4FLL8e6lyaFy9Av1pCPug6o2HKFexYRPQxgAZnxV52Qnw1wkNIV900GDadQ03n"
-stripe.checkout.Session.create(
-  success_url="https://example.com/success",
-  line_items=[{"price": "price_1MotwRLkdIwHu7ixYcPLm5uZ", "quantity": 2}],
-  mode="payment",
+const fetchCheckoutUrl = async () => {
+  const data = {
+    pd_identifier: 'ba5d7d1c-3e2a-4a6c-900a-62bdb7bf4479',  // Replace with actual pd identifier
+    ip_address: '192.168.1.38',     // Fetch ip address of yor website user and pass it here
+    apply_coupons: true, // Or false depending on your logic
+    payment_id: '', // Replace with actual payment ID
+    checkout_data: {'line_items':[{"price": "price_1QUNFGLN3QPLtCqejwvff3Pi"}]},   // Replace with the actual checkout data
+    success_url: 'https://paritydeals.com/' // Replace with the actual success URL
+  };
+
+  try {
+    const response = await fetch('https://api.paritydeals.com/api/v1/stripe-checkout/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    console.log('Successfully created Checkout session:', result);
+  } catch (error) {
+    console.error('Error while Checkout session:', error);
+  }
+};
+
+// Call the function
+fetchCheckoutUrl();
+  
      </script>
 <script>
 
