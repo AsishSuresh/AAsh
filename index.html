@@ -46,16 +46,16 @@ ParityDeals.init({
 
 const fetchCheckoutUrllemon = async () => {
   const data = {
-    pd_identifier: '3482355a-69ea-4d5d-9a94-0b7cd054b3b5',  // Replace with actual pd identifier
+    pd_identifier: '12dfe6a7-c59f-4d03-912f-a85884b2c638',  // Replace with actual pd identifier
     ip_address: '192.168.1.38',     // Replace with actual ip_address.
-    variants:'626798',    // Replace with the actual product variants. 
+    variants:'328260',    // Replace with the actual product variants. 
     store_id: '80322', // Replace with actual store ID
     checkout_data: { "data": {
                 "type": "checkouts",
                 "attributes": {
                     "preview": true,
                     "product_options": {
-                        "enabled_variants": [626798]
+                        "enabled_variants": [328260,530070,530115]
                     },
                     "checkout_options": {
                         "discount": false
@@ -71,7 +71,7 @@ const fetchCheckoutUrllemon = async () => {
                     "variant": {
                         "data": {
                             "type": "variants",
-                            "id": "626798"
+                            "id": "328260,530070,530115"
                         }
                     }
                 }
