@@ -50,27 +50,7 @@ const fetchCheckoutUrllemon = async () => {
     ip_address: '192.168.1.38',     // Replace with actual ip_address.
     variants:'626798',    // Replace with the actual product variants. 
     store_id: '80322', // Replace with actual store ID
-    checkout_data: { "data": {
-                "type": "checkouts",
-                "attributes": {
-                    "preview": true,
-                    "product_options": {
-                        "enabled_variants": [328260,530070,530115]
-                    },
-                    "checkout_options": {
-                        "discount": false
-                    },
-                },
-                "relationships": {
-                    "store": {
-                        "data": {
-                            "type": "stores",
-                            "id": "80322"
-                        }
-                    },
-                    
-                }
-            }},   // Replace with the actual Lemonsqueezy checkout data
+    checkout_data: {},   // Replace with the actual Lemonsqueezy checkout data
     success_url: 'https://paritydeals.com/' // Set the URL for post-checkout redirection.
   };
 
