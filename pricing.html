@@ -5,40 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParityDeals Pricing Page</title>
 
-    <!-- ParityDeals SDK Script -->
-    <script type="text/javascript">
-        function resolvePdSDKFunction(e, ...t) {
-            return new Promise((n, i) => {
-                !(function r() {
-                    window.ParityDealsSDK ? n(window.ParityDealsSDK) : setTimeout(r, 50);
-                })();
-            });
-        }
+   <script type="text/javascript">
+function resolvePdSDKFunction(e, ...t) {
+  return new Promise((resolve, reject) => {
+    (function checkSDK() {
+      if (window.ParityDealsSDK && typeof window.ParityDealsSDK[e] === "function") {
+        window.ParityDealsSDK[e](...t)
+          .then(resolve)
+          .catch(reject);
+      } else {
+        setTimeout(checkSDK, 100);
+      }
+    })();
+  });
+}
 
-        // Initialize ParityDeals SDK
-        ParityDeals.init({
-            convertToLocal: true, // Converts prices to local currency
-        });
-    </script>
+(function (window, document, tag, sdkName, sdkUrl, scriptElement, firstScript) {
+  window[sdkName] = window[sdkName] || function () {
+    (window[sdkName].q = window[sdkName].q || []).push(Array.prototype.slice.call(arguments));
+  };
+
+  scriptElement = document.createElement(tag);
+  firstScript = document.getElementsByTagName(tag)[0];
+
+  scriptElement.id = "parity-deals-sdk";
+  scriptElement.async = 1;
+  scriptElement.src = sdkUrl;
+
+  firstScript.parentNode.insertBefore(scriptElement, firstScript);
+})(window, document, "script", "ParityDealsSDK", "https://cdn.paritydeals.com/paritydeals-sdk/0.0.4/paritydeals-sdk.umd.js");
+
+window.ParityDeals = {
+  init: function (options) {
+    ParityDealsSDK("init", options);
+  },
+  getUpdatedPrice: function (elementId, currency) {
+    return resolvePdSDKFunction("getUpdatedPrice", elementId, currency);
+  },
+  updatePriceElement: function (elementId, newPrice) {
+    return resolvePdSDKFunction("updatePriceElement", elementId, newPrice);
+  },
+  updatePrice: function (newPrice) {
+    return resolvePdSDKFunction("updatePrice", newPrice);
+  }
+};
+
+// Initialize ParityDeals SDK
+ParityDeals.init({
+  convertToLocal: true, // Convert prices to local currency
+  // Pass options as needed
+});
+</script>
 </head>
 <body>
     <h1>Pricing Demo</h1>
 
-    <div>
-        <p>Default Pricing: $99</p>
-        <p>Pricing for India: $60</p>
+  <div class="pricing-plan">
+    <div class="price-container"  id="price-container"data-pd-decimal-separator="." data-pd-thousands-separator="," data-pd-original-price="299">
+        <span data-pd-currency-symbol></span>
+        <span data-pd-price-integer></span>
+        <span data-pd-price-decimal-point></span>
+        <span data-pd-price-decimal></span>
     </div>
+  </div>
 
-    <!-- Customized Code Example -->
-    <div class="pricing-plan">
-        <div class="price-container" 
-             data-pd-decimal-separator="." 
-             data-pd-original-price="99" 
-             data-pd-local-price="60">
-        </div>
-    </div>
-
-    <!-- Add more attributes or functionality here -->
+   
 
 </body>
 </html>
