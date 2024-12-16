@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParityDeals Pricing Page</title>
+
+    <!-- ParityDeals SDK Script -->
+    <script type="text/javascript">
+        function resolvePdSDKFunction(e, ...t) {
+            return new Promise((n, i) => {
+                !(function r() {
+                    window.ParityDealsSDK ? n(window.ParityDealsSDK) : setTimeout(r, 50);
+                })();
+            });
+        }
+
+        // Initialize ParityDeals SDK
+        ParityDeals.init({
+            convertToLocal: true, // Converts prices to local currency
+        });
+    </script>
+</head>
+<body>
+    <h1>Pricing Demo</h1>
+
+    <div>
+        <p>Default Pricing: $99</p>
+        <p>Pricing for India: $60</p>
+    </div>
+
+    <!-- Customized Code Example -->
+    <div class="pricing-plan">
+        <div class="price-container" 
+             data-pd-decimal-separator="." 
+             data-pd-original-price="99" 
+             data-pd-local-price="60">
+        </div>
+    </div>
+
+    <!-- Add more attributes or functionality here -->
+
+</body>
+</html>
