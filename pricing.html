@@ -54,11 +54,7 @@ window.ParityDeals = {
 // Initialize ParityDeals SDK
 ParityDeals.init({
   convertToLocal: true, // Convert prices to local currency
-  thousandsSeparator: '/',  
-  decimalSeparator: ',',  
-  decimalPlaces: 4,   
-  roundTo: 'up',   
-  showDecimal: false,    
+     
 "bar": {
         "backgroundColor": "red",
         "fontColor": "blue",
@@ -77,7 +73,12 @@ ParityDeals.init({
     <h1>Pricing Demo</h1>
 <div class="pricing-plan">
   
-    <div class="price-container" data-pd-rel="price-group-1" data-pd-original-price="80"  data-pd-price-integer data-pd-price-decimal-point="," data-pd-currency-code="INR" >
+    <div class="price-container" 
+         data-pd-rel="price-group-1" 
+         data-pd-original-price="80"  
+         data-pd-price-integer
+         data-pd-price-decimal-point="," 
+         data-pd-currency-code="INR" >
     <span data-pd-price-formatted></span> 
   </div>
 </div>
